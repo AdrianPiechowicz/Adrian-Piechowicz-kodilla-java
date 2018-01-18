@@ -1,8 +1,9 @@
 package com.kodilla.testing.Shape;
 
 public class Circle implements Shape {
-
-    public Circle() {
+    int radius;
+    public Circle(int radius) {
+        this.radius= radius;
     }
 
     @Override
@@ -12,6 +13,6 @@ public class Circle implements Shape {
 
     @Override
     public double getField() {
-        return 2*3.14*5*5;
+        return 2*3.14*radius*radius;
     }
 }
