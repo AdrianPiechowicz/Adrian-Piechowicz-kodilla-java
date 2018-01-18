@@ -55,5 +55,6 @@ public class CollectionTestSuite {
         oddNumbers.add(4);
         oddNumbers.add(6);
         Assert.assertEquals(oddNumbers, result);
+
     }
 }
