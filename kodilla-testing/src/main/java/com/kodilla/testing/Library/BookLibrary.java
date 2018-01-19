@@ -21,7 +21,14 @@ public class BookLibrary {
 
     public List<Book> listBooksInHandsOf(LibraryUser libraryUser){
         List<Book> bookList = new ArrayList<Book>();
-        bookList.add(new Book("Title", "Author", 1993));
+        if (libraryUser.getBookList().size()==0) {
+            return bookList;
+        }
+            else {
+            List<Book> resultList = libraryUser.getBookList();
+            bookList = resultList;
+        }
+
         return bookList;
     }
 

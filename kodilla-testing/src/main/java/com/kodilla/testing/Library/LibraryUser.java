@@ -1,16 +1,23 @@
 package com.kodilla.testing.Library;
 
+import java.util.List;
 import java.util.Objects;
 
 public class LibraryUser {
     String firstname;
     String lastname;
     String peselId;
+    List<Book> bookList;
 
-    public LibraryUser(String firstname, String lastname, String peselId) {
+    public LibraryUser(String firstname, String lastname, String peselId, List<Book> bookList) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.peselId = peselId;
+        this.bookList=bookList;
+    }
+
+    public List<Book> getBookList() {
+        return bookList;
     }
 
     public String getFirstname() {
