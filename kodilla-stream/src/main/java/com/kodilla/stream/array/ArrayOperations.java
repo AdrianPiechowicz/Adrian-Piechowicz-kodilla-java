@@ -1,8 +1,9 @@
-/*package com.kodilla.stream.array;
+package com.kodilla.stream.array;
 
 import java.util.Arrays;
 import java.util.*;
 import java.util.stream.*;
+import java.util.OptionalDouble;
 
 import static java.util.stream.Collectors.*;
 
@@ -13,10 +14,16 @@ public final class ArrayOperations {
         this.array = array;
     }
 
-    public void getAverage(int[] numbers){
-        List<Integer> result = IntStream.range(0,numbers.length)
-                .collect(t
+    public double getAverage(int[] numbers){
+        IntStream.range(0,numbers.length)
+                .forEach(x-> System.out.println(array[x]));
+
+        OptionalDouble result = IntStream.range(0,numbers.length)
+                .map(n->numbers[n])
+                .average();
+        return result.getAsDouble();
+
 
 
     }
-}*/
+}
