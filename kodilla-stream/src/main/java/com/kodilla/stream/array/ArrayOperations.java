@@ -1,11 +1,7 @@
 package com.kodilla.stream.array;
 
-import java.util.Arrays;
-import java.util.*;
-import java.util.stream.*;
 import java.util.OptionalDouble;
-
-import static java.util.stream.Collectors.*;
+import java.util.stream.IntStream;
 
 public final class ArrayOperations {
     int[] array = new int[20];
@@ -14,16 +10,16 @@ public final class ArrayOperations {
         this.array = array;
     }
 
-    public double getAverage(int[] numbers){
-        IntStream.range(0,numbers.length)
-                .forEach(x-> System.out.println(array[x]));
+    public double getAverage(int[] numbers) {
+        IntStream.range(0, numbers.length)
+                .forEach(x -> System.out.println(array[x]));
 
-        OptionalDouble result = IntStream.range(0,numbers.length)
-                .map(n->numbers[n])
+        OptionalDouble result = IntStream.range(0, numbers.length)
+                .map(n -> numbers[n])
                 .average();
-        return result.getAsDouble();
 
 
+        return result.orElse(0);
 
     }
 }
