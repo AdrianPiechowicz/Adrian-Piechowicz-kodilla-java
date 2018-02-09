@@ -9,11 +9,12 @@ public class AirportProcessor {
         flightsDataBase.flightsDataBase.add(new Flight("WRC","WAW", new FlightBy(true,"KRK")));
         flightsDataBase.flightsDataBase.add(new Flight("RDM","GDN", new FlightBy(false,"")));
         flightsDataBase.flightsDataBase.add(new Flight("RDM","POZ", new FlightBy(false,"")));
+        flightsDataBase.flightsDataBase.add(new Flight("GDN","KRK", new FlightBy(true,"WAW")));
 
-        FlightSearcher flightSearcher = new FlightSearcher();
-        flightSearcher.searchFlightsFrom("WAW",flightsDataBase.flightsDataBase);
-        flightSearcher.searchFlightsTo("KRK",flightsDataBase.flightsDataBase);
-        flightSearcher.searchFlightsBy("RDM",flightsDataBase.flightsDataBase);
-        flightSearcher.searchFlightsBy("GDN",flightsDataBase.flightsDataBase);
+        FlightSearcher flightSearcher = new FlightSearcher(flightsDataBase.flightsDataBase);
+        flightSearcher.searchFlightsFrom("WAW");
+        flightSearcher.searchFlightsTo("KRK");
+        flightSearcher.searchFlightsBy("RDM","GDN","");
+        flightSearcher.searchFlightsBy("GDN","KRK","WAW");
     }
 }
