@@ -36,7 +36,8 @@ class MovieStore {
         Map<String, List<String>> theMap = movieStore.getMovies();
 
         theMap.entrySet().stream()
-                .map(entry -> entry.getValue() +"!")
+                .flatMap(entry -> entry.getValue().stream())
+                .map(entry -> entry +"!")
                 .forEach(System.out::print);
 
 
