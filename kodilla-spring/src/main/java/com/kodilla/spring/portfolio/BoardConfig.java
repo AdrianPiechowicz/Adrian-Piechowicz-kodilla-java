@@ -13,7 +13,9 @@ public class BoardConfig {
     @Autowired
     @Qualifier("list1")
     TaskList toDoTasks;
+    @Qualifier("list2")
     TaskList inProgressTasks;
+    @Qualifier("list3")
     TaskList doneTasks;
 
     @Bean
