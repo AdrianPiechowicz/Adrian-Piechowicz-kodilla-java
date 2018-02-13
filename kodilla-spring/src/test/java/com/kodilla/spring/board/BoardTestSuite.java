@@ -20,8 +20,8 @@ public class BoardTestSuite {
         boolean result3 = board.getDoneList().getTasks().add("Clean the table.");
 
         //then
-        Assert.assertEquals(true,result1);
-        Assert.assertEquals(true,result2);
-        Assert.assertEquals(true,result3);
+        System.out.println(board.getToDoList().getTasks().get(0));
+        System.out.println(board.getInProgressList().getTasks().get(0));
+        System.out.println(board.getDoneList().getTasks().get(0));
     }
 }
