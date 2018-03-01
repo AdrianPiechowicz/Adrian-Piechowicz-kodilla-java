@@ -28,7 +28,17 @@ public class Board {
                     result += "  ";
                 } else {
                     result += (board[n][k]).getColor().equals(Figure.BLACK) ? "b" : "w";
+                    if (board[n][k].getColor().equals(Figure.BLACK)) {
+                        result += "b";
+                    } else {
+                        result += "w";
+                    }
                     result += (board[n][k]) instanceof Pawn ? "P" : "Q";
+                    if (board[n][k] instanceof Pawn) {
+                        result += "P";
+                    } else {
+                        result += "Q";
+                    }
                 }
                 result += "|";
             }
