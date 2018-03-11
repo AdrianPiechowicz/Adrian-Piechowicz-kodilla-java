@@ -1,6 +1,7 @@
 package com.kodilla.hibernate.invoice;
 
 import com.sun.xml.internal.ws.developer.UsesJAXBContext;
+import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -44,13 +45,16 @@ public class Product {
         this.name = name;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "ITEM_ID")
+    @OneToMany (
+            mappedBy = "product",
+            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY
+    )
     public List<Item> getItemList() {
         return itemList;
     }
 
-    public void setItem(List<Item> itemList) {
+    public void setItemList(List<Item> itemList) {
         this.itemList = itemList;
     }
 }

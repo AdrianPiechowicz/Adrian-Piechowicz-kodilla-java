@@ -19,6 +19,8 @@ import java.util.List;
 public class InvoiceDaoTestSuite {
     @Autowired
     InvoiceDao invoiceDao;
+    @Autowired
+    ProductDao productDao;
 
     @Test
     public void testInvoiceDaoSave() {
@@ -26,6 +28,9 @@ public class InvoiceDaoTestSuite {
         Product product1 = new Product("Milk");
         Product product2 = new Product("Bread");
         Product product3 = new Product("Ham");
+        productDao.save(product1);
+        productDao.save(product2);
+        productDao.save(product3);
 
         Item item1 = new Item(product1, BigDecimal.valueOf(2),5);
         Item item2 = new Item(product2, BigDecimal.valueOf(3.5),2);
@@ -41,8 +46,7 @@ public class InvoiceDaoTestSuite {
         List<Item> itemList2 = new ArrayList<>();
         itemList1.add(item1);
         itemList1.add(item3);
-        itemList1.add(item4);
-        itemList2.add(item1);
+        itemList2.add(item4);
         itemList2.add(item2);
 
         Invoice invoice1 = new Invoice("First invoice",itemList1);
