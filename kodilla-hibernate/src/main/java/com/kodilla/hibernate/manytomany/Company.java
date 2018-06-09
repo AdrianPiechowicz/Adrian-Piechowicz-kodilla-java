@@ -10,6 +10,11 @@ import java.util.List;
         query = "SELECT * FROM COMPANIES " + "WHERE LEFT(company_name,3) = :STARTNAME",
         resultClass = Company.class
 )
+@NamedQuery(
+        name = "Company.retrieveCompaniesWithNameLike",
+        query = "Select c FROM Company c WHERE company_name LIKE :ARG"
+)
+
 @Entity
 @Table(name = "COMPANIES")
 public class Company {
