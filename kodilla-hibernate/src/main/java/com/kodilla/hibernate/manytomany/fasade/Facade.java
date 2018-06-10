@@ -18,10 +18,7 @@ public class Facade {
     private List<Company> companies = new ArrayList<>();
     private String temp = "asd"; */
 
-    @Autowired
-    private CompanyDao companyDao;
-    @Autowired
-    private EmployeeDao employeeDao;
+
 
     public List<Company> retrieveCompaniesWithNameLike(String string) {
         return retrieveCompaniesWithNameLike("%"+string+"%");

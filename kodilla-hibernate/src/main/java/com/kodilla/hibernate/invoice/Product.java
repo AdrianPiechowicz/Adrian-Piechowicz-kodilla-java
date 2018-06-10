@@ -1,6 +1,5 @@
 package com.kodilla.hibernate.invoice;
 
-import com.sun.xml.internal.ws.developer.UsesJAXBContext;
 import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
