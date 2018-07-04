@@ -5,15 +5,21 @@ import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
-@NamedNativeQuery (
-        name = "Company.retrieveCompanyStartingWith",
-        query = "SELECT * FROM COMPANIES " + "WHERE LEFT(company_name,3) = :STARTNAME",
-        resultClass = Company.class
-)
-@NamedQuery(
-        name = "Company.retrieveCompaniesWithNameLike",
-        query = "Select c FROM Company c WHERE company_name LIKE :ARG"
-)
+
+@NamedNativeQueries({
+        @NamedNativeQuery(
+                name = "Company.retrieveCompanyStartingWith",
+                query = "SELECT * FROM companies" +
+                        " WHERE COMPANY_NAME LIKE SUBSTRING(:SIGNS, 1, 4)",
+                resultClass = Company.class
+        ),
+        @NamedNativeQuery(
+                name = "Company.retrieveCompaniesWithNameLike",
+                query = "Select c FROM Company c WHERE company_name LIKE :ARGT",
+                resultClass = Company.class
+        )
+})
+
 
 @Entity
 @Table(name = "COMPANIES")

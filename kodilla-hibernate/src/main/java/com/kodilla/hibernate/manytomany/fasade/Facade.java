@@ -19,14 +19,26 @@ public class Facade {
    /* private List<Employee> employees = new ArrayList<>();
     private List<Company> companies = new ArrayList<>();
     private String temp = "asd"; */
+    @Autowired
+    private CompanyDao companyDao;
+    private EmployeeDao employeeDao;
 
+    private List<Company> companiesList = new ArrayList<>();
+    private List<Employee> employeesList = new ArrayList<>();
 
-
-    public List<Company> retrieveCompaniesWithNameLike(String string) {
-        return retrieveCompaniesWithNameLike("%"+string+"%");
+    public Facade(EmployeeDao employeeDao) {
+        this.employeeDao = employeeDao;
     }
 
-    public List<Employee> retrieveEmployeesWithNameLike(String string) {
-        return retrieveEmployeesWithNameLike("%"+string+"%");
+    public List<Company> retrieveCompaniesByAnyGivenNameFragment(final String nameFragment) {
+        companyDao.retrieveCompaniesWithNameLike(nameFragment);
+        return companiesList;
     }
+
+    public List<Employee> retrieveEmployeesByAnyGivenLastNameFragment(final String lastNameFragment) {
+        employeeDao.retrieveEmployeesWithNameLike(lastNameFragment);
+        return employeesList;
+    }
+
+
 }
